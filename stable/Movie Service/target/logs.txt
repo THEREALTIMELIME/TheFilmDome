@@ -1,0 +1,301 @@
+===== RUN START Sun 06/07/2026 14:40:59.38 ===== 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-06-07T14:41:00.223-04:00  INFO 13088 --- [           main] com.movie.service.Main                   : Starting Main v1.0-SNAPSHOT using Java 21.0.2 with PID 13088 (C:\Users\glcha\Documents\github\stable\Final Movie Service\target\FinalMovieService-1.0-SNAPSHOT.jar started by glcha in C:\Users\glcha\Documents\github\stable\Final Movie Service\target)
+2026-06-07T14:41:00.226-04:00  INFO 13088 --- [           main] com.movie.service.Main                   : No active profile set, falling back to 1 default profile: "default"
+2026-06-07T14:41:00.723-04:00  INFO 13088 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-07T14:41:00.822-04:00  INFO 13088 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 4 JPA repository interfaces.
+2026-06-07T14:41:01.569-04:00  INFO 13088 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-06-07T14:41:01.594-04:00  INFO 13088 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-07T14:41:01.594-04:00  INFO 13088 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-06-07T14:41:01.631-04:00  INFO 13088 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-07T14:41:01.633-04:00  INFO 13088 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1359 ms
+2026-06-07T14:41:01.874-04:00  INFO 13088 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-07T14:41:01.939-04:00  INFO 13088 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-06-07T14:41:01.978-04:00  INFO 13088 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-07T14:41:02.232-04:00  INFO 13088 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-07T14:41:02.254-04:00  INFO 13088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-07T14:41:02.752-04:00  INFO 13088 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a6dffdb
+2026-06-07T14:41:02.753-04:00  INFO 13088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-07T14:41:02.950-04:00  INFO 13088 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.37
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-07T14:41:04.650-04:00  INFO 13088 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-07T14:41:04.762-04:00  INFO 13088 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-07T14:41:06.422-04:00  INFO 13088 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-07T14:41:06.904-04:00  WARN 13088 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-07T14:41:08.326-04:00  INFO 13088 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-06-07T14:41:08.365-04:00  INFO 13088 --- [           main] com.movie.service.Main                   : Started Main in 8.526 seconds (process running for 8.96)
+IMPORTING TMDB DATA...
+===== TRENDING MOVIES =====
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+IMPORT COMPLETE
+2026-06-07T14:41:10.565-04:00  INFO 13088 --- [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-07T14:41:10.635-04:00  INFO 13088 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-06-07T14:41:12.806-04:00  INFO 13088 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-07T14:41:12.808-04:00  INFO 13088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-07T14:41:12.843-04:00  INFO 13088 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+===== RUN END Sun 06/07/2026 14:41:13.42 ===== 
+===== RUN START Mon 06/08/2026  2:00:00.94 ===== 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-06-08T02:00:02.221-04:00  INFO 30204 --- [           main] com.movie.service.Main                   : Starting Main v1.0-SNAPSHOT using Java 21.0.2 with PID 30204 (C:\Users\glcha\Documents\github\stable\Final Movie Service\target\FinalMovieService-1.0-SNAPSHOT.jar started by glcha in C:\Users\glcha\Documents\github\stable\Final Movie Service\target)
+2026-06-08T02:00:02.223-04:00  INFO 30204 --- [           main] com.movie.service.Main                   : No active profile set, falling back to 1 default profile: "default"
+2026-06-08T02:00:02.813-04:00  INFO 30204 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-08T02:00:02.948-04:00  INFO 30204 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 126 ms. Found 4 JPA repository interfaces.
+2026-06-08T02:00:03.773-04:00  INFO 30204 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-06-08T02:00:03.791-04:00  INFO 30204 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-08T02:00:03.791-04:00  INFO 30204 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-06-08T02:00:03.825-04:00  INFO 30204 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-08T02:00:03.825-04:00  INFO 30204 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1547 ms
+2026-06-08T02:00:04.554-04:00  INFO 30204 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-08T02:00:04.626-04:00  INFO 30204 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-06-08T02:00:04.692-04:00  INFO 30204 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-08T02:00:05.205-04:00  INFO 30204 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-08T02:00:05.246-04:00  INFO 30204 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-08T02:00:05.965-04:00  INFO 30204 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ee258
+2026-06-08T02:00:05.966-04:00  INFO 30204 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-08T02:00:06.062-04:00  INFO 30204 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.37
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-08T02:00:07.670-04:00  INFO 30204 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-08T02:00:07.757-04:00  INFO 30204 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-08T02:00:08.868-04:00  INFO 30204 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-08T02:00:09.404-04:00  WARN 30204 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-08T02:00:10.895-04:00  INFO 30204 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-06-08T02:00:10.932-04:00  INFO 30204 --- [           main] com.movie.service.Main                   : Started Main in 9.207 seconds (process running for 9.899)
+IMPORTING TMDB DATA...
+===== TRENDING MOVIES =====
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+===== MOVIE DETAILS =====
+Processing movie: TmdbMovieDetails(id=1667198, title=The Amazing Digital Circus: The Last Act, overview=With Caine gone and the circus dark, the cast are left with only the mistakes and traumas of their pasts to keep them company. As the prospect of eternity closes in around them, they discover the truth about the Digital Circus and its history.?Will they come to terms with what they uncover, or will they make… the other choice? Also, presumably at some point someone says something funny, because this ending can’t be THAT depressing, can it? A theatrical screening of episode 8 and the all new, hour-long episode 9., runtime=93, credits=TmdbCredits(cast=[TmdbCastMember(name=Lizzie Freeman, actorCreditId=3687095, knownFor=Acting, character=Pomni (voice), order=0), TmdbCastMember(name=Michael Kovach, actorCreditId=2443112, knownFor=Acting, character=Jax (voice), order=1), TmdbCastMember(name=Amanda Hufford, actorCreditId=4731557, knownFor=Acting, character=Ragatha (voice), order=2), TmdbCastMember(name=Marissa Lenti, actorCreditId=2202340, knownFor=Acting, character=Gangle (voice), order=3), TmdbCastMember(name=Sean Chiplock, actorCreditId=2025381, knownFor=Acting, character=Kinger (voice), order=4), TmdbCastMember(name=Ashley Nichols, actorCreditId=4874418, knownFor=Acting, character=Zooble (voice), order=5), TmdbCastMember(name=Alex Rochon, actorCreditId=4731554, knownFor=Acting, character=Caine (voice), order=6), TmdbCastMember(name=Gooseworx, actorCreditId=4731551, knownFor=Sound, character=Bubble / Moon (voice), order=7), TmdbCastMember(name=Cassie Ewulu, actorCreditId=6085453, knownFor=Acting, character=Queenie (voice), order=8), TmdbCastMember(name=Skye Redden, actorCreditId=5874756, knownFor=Acting, character=Ribbit (voice), order=9), TmdbCastMember(name=Arin Hanson, actorCreditId=230567, knownFor=Acting, character=Kaufmo (voice), order=10), TmdbCastMember(name=Zach Hadel, actorCreditId=2018847, knownFor=Acting, character=Crappy Looking Fish Orange (voice), order=11), TmdbCastMember(name=David Cazares, actorCreditId=5874759, knownFor=Acting, character=Crappy Looking Fish Red (voice), order=12), TmdbCastMember(name=Makenzie Michaelson, actorCreditId=6265846, knownFor=Acting, character=Abigail Brooks, order=13), TmdbCastMember(name=Kaelyn Hutson, actorCreditId=6265848, knownFor=Acting, character=Suzie J. Ackerman, order=14), TmdbCastMember(name=Mantra, actorCreditId=2339416, knownFor=Acting, character=Zoey Raghavan, order=15), TmdbCastMember(name=A.J. Noon, actorCreditId=6265849, knownFor=Acting, character=Riley Verselis, order=16), TmdbCastMember(name=Ben Bishop, actorCreditId=145166, knownFor=Acting, character=Grant Best, order=17), TmdbCastMember(name=Bethany Sansom, actorCreditId=6265851, knownFor=Acting, character=Destiny Best, order=18), TmdbCastMember(name=Celina Watson, actorCreditId=6265852, knownFor=Acting, character=Anne Best, order=19), TmdbCastMember(name=Karyn Hubbard, actorCreditId=6265855, knownFor=Acting, character=Sam Best, order=20), TmdbCastMember(name=Izatillo Ishonov, actorCreditId=6265856, knownFor=Acting, character=Leroy Matteo, order=21)], crew=[Id: 4731551 , Name: Gooseworx , Job: Director, Id: 4731551 , Name: Gooseworx , Job: Writer, Id: 5432587 , Name: Tom Dolan , Job: Line Producer, Id: 4731551 , Name: Gooseworx , Job: Creator, Id: 4885935 , Name: Kevin Lerdwichagul , Job: Executive Producer, Id: 4891335 , Name: Luke Lerdwichagul , Job: Executive Producer, Id: 5432595 , Name: Evan Alderete , Job: Original Music Composer, Id: 4731551 , Name: Gooseworx , Job: Original Music Composer, Id: 6165965 , Name: James Bailey , Job: Cinematography, Id: 6165967 , Name: Jackson Hu , Job: Cinematography, Id: 6135871 , Name: Gobo3D , Job: Art Direction, Id: 5432587 , Name: Tom Dolan , Job: Production Manager, Id: 5763538 , Name: Michelle Azzi , Job: 2D Artist, Id: 6165980 , Name: Giam Coquel-Danchin , Job: 3D Artist, Id: 6135871 , Name: Gobo3D , Job: Concept Artist, Id: 6135871 , Name: Gobo3D , Job: 2D Artist, Id: 6135871 , Name: Gobo3D , Job: 3D Artist, Id: 4731551 , Name: Gooseworx , Job: Concept Artist, Id: 6165986 , Name: Alicia Howard , Job: Concept Artist, Id: 6165986 , Name: Alicia Howard , Job: 2D Artist, Id: 6165988 , Name: Vivian Li , Job: 3D Artist, Id: 6165990 , Name: Christian Martin , Job: 3D Artist, Id: 6165992 , Name: Todd Moshier , Job: 2D Artist, Id: 6165993 , Name: Efraim Ninsiima , Job: 2D Artist, Id: 5258546 , Name: AD Taeza , Job: 2D Artist, Id: 3019166 , Name: Husain Untoro , Job: 2D Artist, Id: 6165997 , Name: David Fonti , Job: Compositing Artist, Id: 6165998 , Name: Arman Haque , Job: Compositing Artist, Id: 6165999 , Name: Jordan Pring , Job: Compositing Artist, Id: 6166003 , Name: Derek Christmann , Job: 3D Animator, Id: 6166005 , Name: Vynicius de Oliveira , Job: 3D Animator, Id: 6166007 , Name: Jad El-Khoury , Job: 3D Animator, Id: 6166008 , Name: Everardo Esteban , Job: 3D Animator, Id: 6166010 , Name: Nathan Garrard , Job: 3D Animator, Id: 6166012 , Name: Isaiah Griggs , Job: 3D Animator, Id: 5432592 , Name: Neda Lay , Job: Storyboard Artist, Id: 5432592 , Name: Neda Lay , Job: 2D Artist, Id: 6166015 , Name: Jesse Nylund , Job: 3D Animator, Id: 6166018 , Name: Jacopo Poto , Job: 3D Animator, Id: 6166019 , Name: Eliza Stevenson , Job: 3D Animator, Id: 5505335 , Name: Kevin Temmer , Job: Lead Animator, Id: 6166021 , Name: Noah Yang , Job: 3D Animator, Id: 4731551 , Name: Gooseworx , Job: Color Grading, Id: 6166022 , Name: Ash Dhanu , Job: Production Assistant, Id: 6166023 , Name: Jack Lodi , Job: Production Assistant, Id: 4565866 , Name: Payton Goodwin , Job: Thanks, Id: 6166024 , Name: Daryle Hodgkinson , Job: Thanks, Id: 6101264 , Name: Micah Preciado , Job: Thanks, Id: 6166025 , Name: Zachary Preciado , Job: Thanks, Id: 5913675 , Name: Sel , Job: Thanks, Id: 6166026 , Name: Alec Smith , Job: Thanks, Id: 4731551 , Name: Gooseworx , Job: Screenplay, Id: 4956999 , Name: Jasmine Yang , Job: Producer, Id: 4891335 , Name: Luke Lerdwichagul , Job: Producer, Id: 4731551 , Name: Gooseworx , Job: Producer, Id: 4731551 , Name: Gooseworx , Job: Lyricist]), videos=TmdbVideosResponse(results=[TmdbVideo(key=ZLaAOaIo6JU, site=YouTube, type=Teaser, publishedDate=Thu Jun 04 12:00:27 EDT 2026), TmdbVideo(key=jL7lR0qh4m4, site=YouTube, type=Teaser, publishedDate=Mon Jun 01 15:00:17 EDT 2026), TmdbVideo(key=vNGAtHBhdiM, site=YouTube, type=Trailer, publishedDate=Wed Apr 29 04:00:58 EDT 2026), TmdbVideo(key=EIIbLnSS8Io, site=YouTube, type=Teaser, publishedDate=Mon Apr 13 16:39:58 EDT 2026), TmdbVideo(key=qQilWg28HMM, site=YouTube, type=Trailer, publishedDate=Fri Apr 10 12:50:50 EDT 2026)]), posterPath=/uoZeXWuUS2z2F7VaC1iS5RS5cnk.jpg, productionCompanies=[ProductionCompany(name=Glitch Productions, id=239704)], releaseDates=ReleaseDatesResponse(results=[CountryRelease(countryCode=AG, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=AL, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=AR, releaseDates=[ReleaseDate(certification=+18, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=AT, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=AU, releaseDates=[ReleaseDate(certification=M, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=AW, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BA, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BB, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BE, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BG, releaseDates=[ReleaseDate(certification=C, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BO, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=BR, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CA, releaseDates=[ReleaseDate(certification=PG, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CH, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CL, releaseDates=[ReleaseDate(certification=TE+7, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CO, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CR, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CY, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=CZ, releaseDates=[ReleaseDate(certification=12+, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=DE, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=DK, releaseDates=[ReleaseDate(certification=11, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=DO, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=EC, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=EE, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=ES, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=FI, releaseDates=[ReleaseDate(certification=K-12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=FR, releaseDates=[ReleaseDate(certification=12, releaseDate=Fri Jun 05 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=GB, releaseDates=[ReleaseDate(certification=12A, releaseDate=Tue Jun 02 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=GI, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=GR, releaseDates=[ReleaseDate(certification=K12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=GT, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=GY, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=HK, releaseDates=[ReleaseDate(certification=IIA, releaseDate=Tue Jun 02 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=HN, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=HR, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=HU, releaseDates=[ReleaseDate(certification=16, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=ID, releaseDates=[ReleaseDate(certification=13+, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=IE, releaseDates=[ReleaseDate(certification=12A, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=IS, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=IT, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=JP, releaseDates=[ReleaseDate(certification=, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=KN, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=LA, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=LC, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=LT, releaseDates=[ReleaseDate(certification=N-13, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=LU, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=LV, releaseDates=[ReleaseDate(certification=12+, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MD, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=ME, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MK, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MO, releaseDates=[ReleaseDate(certification=B, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MT, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MX, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=MY, releaseDates=[ReleaseDate(certification=P13, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=NI, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=NL, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=NO, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=NZ, releaseDates=[ReleaseDate(certification=M, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PA, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PE, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PH, releaseDates=[ReleaseDate(certification=R-13, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=1), ReleaseDate(certification=R-13, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PL, releaseDates=[ReleaseDate(certification=, releaseDate=Tue Jun 02 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PR, releaseDates=[ReleaseDate(certification=NR, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PT, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=PY, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=RS, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=SE, releaseDates=[ReleaseDate(certification=7, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=SG, releaseDates=[ReleaseDate(certification=PG13, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=SK, releaseDates=[ReleaseDate(certification=12, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=SV, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=TH, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=TT, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=TW, releaseDates=[ReleaseDate(certification=, releaseDate=Thu Jun 04 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=US, releaseDates=[ReleaseDate(certification=NR, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=UY, releaseDates=[ReleaseDate(certification=, releaseDate=Tue Jun 02 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=VE, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=VI, releaseDates=[ReleaseDate(certification=NR, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=XK, releaseDates=[ReleaseDate(certification=, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)]), CountryRelease(countryCode=ZA, releaseDates=[ReleaseDate(certification=10-12PG, releaseDate=Wed Jun 03 20:00:00 EDT 2026, type=2)])]), releaseDate=Tue Jun 02 20:00:00 EDT 2026, budget=0, genres=[TmdbGenre(id=16, name=Animation), TmdbGenre(id=878, name=Science Fiction), TmdbGenre(id=18, name=Drama), TmdbGenre(id=53, name=Thriller)], popularity=123.4173, revenue=19470000, voteAverage=8.4, voteCount=31)
+Hibernate: select s1_0.id from studio s1_0 where s1_0.tmdb_id=? limit ?
+Hibernate: insert into studio (studio_name,tmdb_id) values (?,?)
+Hibernate: select g1_0.id from genre g1_0 where g1_0.tmdb_id=? limit ?
+Hibernate: select g1_0.id,g1_0.genre_name,g1_0.tmdb_id from genre g1_0 where g1_0.tmdb_id=?
+Hibernate: select g1_0.id from genre g1_0 where g1_0.tmdb_id=? limit ?
+Hibernate: select g1_0.id,g1_0.genre_name,g1_0.tmdb_id from genre g1_0 where g1_0.tmdb_id=?
+Hibernate: select g1_0.id from genre g1_0 where g1_0.tmdb_id=? limit ?
+Hibernate: select g1_0.id,g1_0.genre_name,g1_0.tmdb_id from genre g1_0 where g1_0.tmdb_id=?
+Hibernate: select g1_0.id from genre g1_0 where g1_0.tmdb_id=? limit ?
+Hibernate: select g1_0.id,g1_0.genre_name,g1_0.tmdb_id from genre g1_0 where g1_0.tmdb_id=?
+Trailer:
+Main Cast:
+Actor INFO: TmdbActorDetails(tmdbId=3687095, imdbId=nm5213242, name=Lizzie Freeman, biography=From Wikipedia, the free encyclopedia
+
+Elizabeth Freeman (born November 2, 1992) is an American voice actress. She is known for providing the voice of Pomni in The Amazing Digital Circus as well as the English voices of Trish Una in JoJo's Bizarre Adventure: Golden Wind, Chizuru Mizuhara in Rent-A-Girlfriend, Chisato Nishikigi in Lycoris Recoil. In addition, she is a former voice actress for the character Meggy Spletzer in SMG4 and its spin-off Sunset Paradise, from 2020 to 2022., birthday=Sun Nov 01 19:00:00 EST 1992, gender=1, placeOfBirth=Oklahoma, USA, profilePath=/h6R9y6VegUkTqJVGIkBXjMHYuGB.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=2443112, imdbId=nm7693469, name=Michael Kovach, biography=Michael Kovach (born June 17, 1995) is an American voice actor who is best known for being the voice of Angel Dust from the upcoming adult animated series Hazbin Hotel. He is also the voice of Rocky Rickaby in the upcoming animated short film Lackadaisy. As of 2018 as a stand-in for Rob Paulsen, he became the new English voice of the titular character in Landon.
+
+Kovach is asexual. He is dating Ashley Nichols, creator of indie cartoon Far-Fetched., birthday=Fri Jun 16 20:00:00 EDT 1995, gender=2, placeOfBirth=Youngstown, Ohio, USA, profilePath=/qSSrEuA3XUBEFo3bxMOHQ6E6r7y.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=4731557, imdbId=nm10223465, name=Amanda Hufford, biography=Amanda Hufford is a lifelong performer from Houston, Texas, working in video games, animation and commercials as a voice actor and vocalist., birthday=Sat Apr 15 20:00:00 EDT 1995, gender=3, placeOfBirth=Houston, Texas, USA, profilePath=/4c89ydeGf8b58DN0KBvaRFsqrEO.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=2202340, imdbId=null, name=Marissa Lenti, biography=Marissa Lenti is an American voice actor, ADR director and script writer. Some of Lenti's noteworthy roles include Yuna in Kuma Kuma Kuma Bear, Shoko Majima in Kokkoku, Chiaki Hoshinomori in Gamers!, Alicia Florence in Aria the Animation, Nita in Brawl Stars, Financier Cookie in Cookie Run: Kingdom, and Gangle in The Amazing Digital Circus.
+
+Lenti started theatre acting at age 8, and began taking on-camera roles around the age of 12. Lenti went on to accumulate over a decade of experience as a seamstress, at one point owning a business making costumes and dolls. While in college studying Costume Design, they decided to pursue voice acting instead. In order to pursue this goal, they used funds saved from the business to move from Boston to Texas.
+
+While in Dallas, Lenti attended Haberkon, a small convention thrown by fellow voice actor Todd Haberkorn, and met Tyler Walker, an ADR director at Funimation. Walker went on to cast Lenti in the English dub of Tokyo ESP and later Lenti's first named character, as Libra in Fairy Tail. Their first main character was Chiaki Hoshinomori in Gamers!.
+
+Lenti joined Sound Cadence Studios in May 2016 as an ADR director, writer, and production assistant. While at Sound Cadence, they have gone on to direct many shows, including Kemono Friends, Kageki Shoujo!! and Arte., birthday=Thu Sep 17 20:00:00 EDT 1992, gender=1, placeOfBirth=Queens, NY, profilePath=/wAeWZ0nCxImIlFj547RwOOEus1B.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=2025381, imdbId=nm5168315, name=Sean Chiplock, biography=From Wikipedia, the free encyclopedia
+
+Sean Edward Chiplock (born June 21, 1990) is an American voice actor who is known for his work in English versions of Japanese video games and anime, as well as in numerous indie games. Based in Los Angeles, California, Chiplock is known as the voice of Rean Schwarzer in the Trails series, Revali in The Legend of Zelda: Breath of the Wild, Kiyotaka Ishimaru in Danganronpa, Yuuki Mishima in Persona 5, Diluc in Genshin Impact, Shiki Granbell in Edens Zero, Subaru Natsuki in Re:Zero, Guido Mista and Sex Pistols in JoJo's Bizarre Adventure: Golden Wind, Spider-Man in Marvel's Avengers, Pewter in AI: The Somnium Files, Noob Saibot in Mortal Kombat 11, and Kinger in The Amazing Digital Circus., birthday=Wed Jun 20 20:00:00 EDT 1990, gender=2, placeOfBirth=Kalamazoo, Michigan, USA, profilePath=/6mSZGexsoSRWwcfyX6wLk7yV8iM.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=4874418, imdbId=nm7770665, name=Ashley Nichols, biography=Ashley Nichols is an animator, voice actor, and creator who has worked on popular animated shows like Animaniacs, Hazbin Hotel, and Lackadaisy. She also co-created the series Far-Fetched with Dave Capdevielle and hosts HuniCast. As a voice actor, Nichols has voiced characters like Zooble in The Amazing Digital Circus and Lacy Hardt in Lackadaisy Cats. She has also animated for Ollie & Scoops, The Dover Boys, and Cartoon All-Stars Reanimate, birthday=Wed Mar 10 19:00:00 EST 1993, gender=3, placeOfBirth=Seattle, WA, USA, profilePath=/g0ar2UUsoh7K8bKGnJGGGGDPZze.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=4731554, imdbId=nm6564424, name=Alex Rochon, biography=Alex Rochon is a Toronto-based voice actor and editor known for his boisterous characters. He's worked in animation, video games, and eLearning videos, including The Amazing Digital Circus (2023), Poppy Playtime (2021), and Wild Smoke (2016). In The Amazing Digital Circus, he voices the wacky ringmaster Caine, a role that earned the show an Annie Award nomination. Rochon has also played bit parts in Pain Girl and Monkey Wrench, birthday=Thu Jul 29 20:00:00 EDT 1993, gender=2, placeOfBirth=Canada, profilePath=/1yRNVElkBZl19fYSAAtrqxmwnIU.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6085453, imdbId=nm4753812, name=Cassie Ewulu, biography=Cassie Ewulu is a Nigerian American voice actress and singer based in Dallas, Texas with remote recording capability. Cassie has been providing voice over for video games, anime, commercial, and corporate projects for several years. She is best known for her roles in SMITE (Hi-Rez) as Yemoja, Kemono Jihen (FUNimation) as Akira, Lake (WhiteThorn Games) as Kay Evans, Flipping Death (Zoink! Games) as Penny, Cris Tales (Modus Games) as Lucia, and many more!, birthday=Wed Oct 25 20:00:00 EDT 1995, gender=1, placeOfBirth=null, profilePath=/rjau5IbGnN8AcjsGYupdv0MThik.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=5874756, imdbId=nm16081140, name=Skye Redden, biography=Skye Redden is a Filipino-American voice actress and casting director. She is currently most well-known for her role as Ribbit in The Amazing Digital Circus (2023)., birthday=Wed Sep 08 20:00:00 EDT 2004, gender=3, placeOfBirth=null, profilePath=/xTCMcOHGatMXlCXSr3vvTSB60kr.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=230567, imdbId=nm2429688, name=Arin Hanson, biography=Arin Joseph Hanson (born January 6, 1987), also known by his Internet pseudonym Egoraptor, is an American Internet personality, animator, cartoonist, comedian, voice actor and songwriter. He is known for his Internet animations, as well as being the co-founder and co-star of the popular YouTube Let's Play webseries Game Grumps and one third of the video game-based parody musical trio Starbomb.
+
+Description above from the Wikipedia article Arin Hanson, licensed under CC-BY-SA, full list of contributors on Wikipedia., birthday=Mon Jan 05 19:00:00 EST 1987, gender=2, placeOfBirth=West Palm Beach, Florida, USA, profilePath=/ffFSd162CTUKhs4xryOGYxHvAMD.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=2018847, imdbId=nm5893406, name=Zach Hadel, biography=Zach Hadel, known by his online alias Psychicpebbles, is a Flash animator best known for his animated series "Hellbenders". He began the series in 2012 with his friend Chris O'Neill. He is also known as a member of the SleepyCabin podcast., birthday=Wed Mar 03 19:00:00 EST 1993, gender=2, placeOfBirth=null, profilePath=/rnxk4BHlXicHVQCh0OI01PkPQ4F.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=5874759, imdbId=null, name=David Cazares, biography=David Axel Cazares Casanova, better known as Sr Pelo (Which translates to "Mr. Hair") is a Mexican internet personality, YouTuber, animator, illustrator and voice actor. He is best known for creating the online series Spooky Month, and Mokey's Show, an absurd parody of Disney's Mickey Mouse. He has created various viral parodies of cartoons and video games such as Team Fortress 2, Super Mario, and Undertale, notable for their satire and black comedy. As of November 29, 2025, his channel has 7.33 million subscribers and 1.7 billion total views., birthday=Thu Oct 22 20:00:00 EDT 1992, gender=2, placeOfBirth=null, profilePath=/yC7oqjUGgkB8EfwguXrYMRdAl6J.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265846, imdbId=null, name=Makenzie Michaelson, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265848, imdbId=null, name=Kaelyn Hutson, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=2339416, imdbId=null, name=Mantra, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265849, imdbId=null, name=A.J. Noon, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=145166, imdbId=nm1047305, name=Ben Bishop, biography=, birthday=null, gender=2, placeOfBirth=null, profilePath=/iFfoMH7KEyetMjJzWRlLZHDmbGK.jpg, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265851, imdbId=null, name=Bethany Sansom, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265852, imdbId=null, name=Celina Watson, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265855, imdbId=null, name=Karyn Hubbard, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Actor INFO: TmdbActorDetails(tmdbId=6265856, imdbId=null, name=Izatillo Ishonov, biography=, birthday=null, gender=0, placeOfBirth=null, profilePath=null, character=null, originalName=null)
+Hibernate: select a1_0.id from actor a1_0 where a1_0.tmdb_id=? limit ?
+Hibernate: insert into actor (actor_name,birthday,gender,imdb_id,place_of_birth,profile_path,summary,tmdb_id) values (?,?,?,?,?,?,?,?)
+Id: 4731551 , Name: Gooseworx , Job: Director
+Age Rating: NR
+Hibernate: insert into movie (budget,description,director,movie_name,newest,popularity,poster,rated,release_date,revenue,run_time,tmdb_id,trailer,trending,vote_average,vote_count) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into actor_movie (fk_actor_id,cast_order,character_name,fk_movie_id) values (?,?,?,?)
+Hibernate: insert into genre_movie (fk_movie_id,fk_genre_id) values (?,?)
+Hibernate: insert into genre_movie (fk_movie_id,fk_genre_id) values (?,?)
+Hibernate: insert into genre_movie (fk_movie_id,fk_genre_id) values (?,?)
+Hibernate: insert into genre_movie (fk_movie_id,fk_genre_id) values (?,?)
+Hibernate: insert into studio_movie (fk_movie_id,fk_studio_id) values (?,?)
+==============================
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+Hibernate: select m1_0.id from movie m1_0 where m1_0.tmdb_id=? limit ?
+----------------------------------
+IMPORT COMPLETE
+2026-06-08T02:00:15.312-04:00  INFO 30204 --- [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-08T02:00:15.320-04:00  INFO 30204 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-06-08T02:00:17.400-04:00  INFO 30204 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-08T02:00:17.403-04:00  INFO 30204 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-08T02:00:17.422-04:00  INFO 30204 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+===== RUN END Mon 06/08/2026  2:00:18.00 ===== 
