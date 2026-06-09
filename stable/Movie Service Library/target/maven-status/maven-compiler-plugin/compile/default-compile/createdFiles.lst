@@ -1,9 +1,0 @@
-com\filmdome\movies\entity\Genre.class
-com\filmdome\movies\entity\Studio.class
-com\filmdome\movies\entity\ActorMovie.class
-com\filmdome\movies\entity\Movie.class
-com\filmdome\movies\repository\MoviesRepository.class
-com\filmdome\movies\repository\StudioRepository.class
-com\filmdome\movies\repository\ActorRepository.class
-com\filmdome\movies\repository\GenreRepository.class
-com\filmdome\movies\entity\Actor.class
