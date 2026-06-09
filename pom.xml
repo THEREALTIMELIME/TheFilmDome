@@ -105,8 +105,6 @@
 			<groupId>com.filmdome.movies</groupId>
 			<artifactId>movie-db-library</artifactId>
 			<version>1.0.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/movie-db-library-1.0.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
