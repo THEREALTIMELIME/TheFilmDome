@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<div th:replace="fragments/pageLayout :: head"></div>
+<div th:replace="~{fragments/pageLayout :: head}"></div>
 <body>
 
-<div th:replace="fragments/pageLayout :: nav"></div>
+<div th:replace="~{fragments/pageLayout :: nav}"></div>
 
 <div class="container pt-4">
     <h5 class="fw-bold">Date: <span class="fw-normal" th:text="${#temporals.format(news.date, 'MMM dd, yyyy')}"></span></h5>
@@ -23,5 +23,5 @@
     </form>
 </div>
 </body>
-<div th:replace="fragments/pageLayout :: foot"></div>
+<div th:replace="~{fragments/pageLayout :: foot}"></div>
 </html>

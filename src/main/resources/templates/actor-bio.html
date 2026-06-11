@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<div th:replace="fragments/pageLayout :: head"></div>
+<div th:replace="~{fragments/pageLayout :: head}"></div>
 <body>
-<div th:replace="fragments/pageLayout :: nav"></div>
+<div th:replace="~{fragments/pageLayout :: nav}"></div>
 <div class="container">
     <div class="container-fluid">
         <div class="col-md-12 mt-5">
@@ -42,5 +42,5 @@
     </div>
 </div>
 </body>
-<div th:replace="fragments/pageLayout :: foot"></div>
+<div th:replace="~{fragments/pageLayout :: foot}"></div>
 </html>

@@ -1,0 +1,57 @@
+server:
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/movies
+    username: root
+    password: asqw12zxASQW!@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    show-sql: false
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+    open-in-view: true
+
+logging:
+  file:
+    name: logs/webserver.log
+
+  level:
+    root: INFO
+
+    com.loginwebsite.websiteproject: INFO
+
+    org.hibernate.SQL: OFF
+    org.hibernate.orm.jdbc.bind: OFF
+    org.hibernate.engine.transaction.jta.platform.internal: ERROR
+
+    org.springframework.orm.jpa: WARN
+    org.springframework.data.jpa: WARN
+    org.springframework.web.servlet.DispatcherServlet: WARN
+
+    org.thymeleaf: ERROR
+
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 30
+      total-size-cap: 500MB
+      file-name-pattern: logs/webserver.%d{yyyy-MM-dd}.%i.log
+
+tmdb:
+  api:
+    key: ee8401d3283e92037c466d2886ff8354
+
+  access:
+    token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZTg0MDFkMzI4M2U5MjAzN2M0NjZkMjg4NmZmODM1NCIsIm5iZiI6MTc3ODc4NDQxNy4zMTksInN1YiI6IjZhMDYxOGExODQ1MDA4Y2M5NTg0ODc0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.b2GFaBsUHVnuCecSOj4UIMdHGHuzoMimnmX9Ke1Rcmo

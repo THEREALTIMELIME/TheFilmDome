@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.filmdome</groupId>
-	<artifactId>webserver</artifactId>
+	<artifactId>movies-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>websiteproject</name>
+	<name>Filmdome Movies Service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

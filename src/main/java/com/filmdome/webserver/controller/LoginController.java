@@ -93,7 +93,7 @@ public class LoginController {
         }
 
 
-        model.addAttribute("userLogin", moviesRepository.searchEverything(String.valueOf(userLogin)));
+        model.addAttribute("userLogin", userLogin);
         model.addAttribute("errorMessage", "Invalid password.");
         return "user-password";
     }

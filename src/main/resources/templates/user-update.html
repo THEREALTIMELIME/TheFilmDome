@@ -3,10 +3,10 @@
 
 <script th:src="@{/js/user.js}"></script>
 
-<div th:replace="fragments/pageLayout :: head"></div>
+<div th:replace="~{fragments/pageLayout :: head}"></div>
 
 <body>
-<div th:replace="fragments/pageLayout :: nav"></div>
+<div th:replace="~{fragments/pageLayout :: nav}"></div>
 
 <div class="container">
     <div class="row justify-content-center mt-5 pt-5">
@@ -143,9 +143,6 @@
                             </button>
                         </div>
                     </form>
-
-
-
                     <script>
 
                       document.getElementById("newPassword").addEventListener("input", updateUserPasswordCheck);
@@ -156,14 +153,10 @@
                       setupPasswordToggle("newPassword", "toggleNewPassword");
                       setupPasswordToggle("confirmPassword", "toggleConfirmPassword");
                     </script>
-
-
-
-
                 </div>
             </div>
         </div>
-
+        <div th:replace="~{fragments/pageLayout :: foot}"></div>
     </div>
 </div>
 </body>

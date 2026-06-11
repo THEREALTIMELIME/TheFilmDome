@@ -9,11 +9,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan({
 		"com.filmdome.movies.entity",
-		"com.loginwebsite.websiteproject.entity"
+		"com.filmdome.webserver.entity"
 })
 @EnableJpaRepositories({
 		"com.filmdome.movies.repository",
-		"com.loginwebsite.websiteproject.repository"
+		"com.filmdome.webserver.repository"
 })
 public class WebsiteprojectApplication {
 

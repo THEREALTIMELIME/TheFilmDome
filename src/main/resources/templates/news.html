@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<div th:replace="fragments/pageLayout :: head"></div>
+<div th:replace="~{fragments/pageLayout :: head}"></div>
 <body>
 
-<div th:replace="fragments/pageLayout :: nav"></div>
+<div th:replace="~{fragments/pageLayout :: nav}"></div>
 
 <div class="container bg-light">
 <div class="container-fluid pt-4">
@@ -31,5 +31,5 @@
     </div>
 </div>
 </body>
-<div th:replace="fragments/pageLayout :: foot"></div>
+<div th:replace="~{fragments/pageLayout :: foot}"></div>
 </html>
