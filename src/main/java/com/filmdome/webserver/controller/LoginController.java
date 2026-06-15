@@ -56,45 +56,40 @@ public class LoginController {
         return "user-login";
     }
 
-    @PostMapping("/loginPart2")
-    public String loginPassword(@ModelAttribute Login userLogin, Model theModel) {
-        String input = userLogin.getLoginInput();
-        User theUser = accountRepository.findByUsername(input);
-        if (theUser == null) theUser = accountRepository.findByEmail(input);
-        if (theUser == null) theUser = accountRepository.findByPhoneNumber(input);
-
-        theModel.addAttribute("userLogin", userLogin);
-        if (theUser != null) {
-            return "user-password";
-        } else {
-            theModel.addAttribute("errorMessage", "Account not found.");
-            return "user-login";
-        }
-    }
-
-    @PostMapping("/loginUserAccount")
-    public String loginUserAccount(@ModelAttribute Login userLogin,
-                                   Model model,
-                                   HttpSession session) {
+    @PostMapping("/login")
+    public String login(@ModelAttribute Login userLogin, Model model, HttpSession session) {
 
         String input = userLogin.getLoginInput();
         String password = userLogin.getPassword();
+
         User user = accountRepository.findByUsername(input);
-        if (user == null) user = accountRepository.findByEmail(input);
-        if (user == null) user = accountRepository.findByPhoneNumber(input);
 
-        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-            session.setAttribute("user", user);
-
-            model.addAttribute("trendingMovies", MovieUtil.convertTo(moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0)));
-            model.addAttribute("newestMovies", MovieUtil.convertTo(moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end)));
-
-            return "home-page";
+        if (user == null) {
+            user = accountRepository.findByEmail(input);
         }
 
+        if (user == null) {
+            user = accountRepository.findByPhoneNumber(input);
+        }
 
-        model.addAttribute("userLogin", userLogin);
-        model.addAttribute("errorMessage", "Invalid password.");
-        return "user-password";
+        if (user == null) {
+            model.addAttribute("userLogin", userLogin);
+            model.addAttribute("errorMessage", "Your login credentials are incorrect.");
+            return "user-login";
+        }
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            model.addAttribute("userLogin", userLogin);
+            model.addAttribute("errorMessage", "Your login credentials are incorrect.");
+            return "user-login";
+        }
+
+        session.setAttribute("user", user);
+
+        model.addAttribute("trendingMovies", MovieUtil.convertTo(moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0)));
+
+        model.addAttribute("newestMovies", MovieUtil.convertTo(moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end)));
+
+        return "home-page";
     }
 }
