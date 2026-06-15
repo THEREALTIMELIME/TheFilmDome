@@ -38,14 +38,22 @@ public class LoginController {
 
     @GetMapping("/")
     public String redirectToLogin() {
-        return "redirect:/loginPart1";
+        return "redirect:/login";
     }
 
-    @GetMapping("/loginPart1")
-    public String showForm(Model theModel) {
-        theModel.addAttribute("userLogin", new Login());
+    @GetMapping("/login")
+    public String showForm(@RequestParam(required = false) String expired, Model model) {
+
+        model.addAttribute("userLogin", new Login());
+
+        if (expired != null) {
+            model.addAttribute("sessionExpired", true);
+        }
+
         return "user-login";
     }
+
+
 
     @GetMapping("/sessionEndLogout")
     public String invalidateSession(HttpSession session, Model theModel) {
@@ -87,7 +95,6 @@ public class LoginController {
         session.setAttribute("user", user);
 
         model.addAttribute("trendingMovies", MovieUtil.convertTo(moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0)));
-
         model.addAttribute("newestMovies", MovieUtil.convertTo(moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end)));
 
         return "home-page";
