@@ -15,22 +15,14 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/**").permitAll()
-                        .anyRequest().authenticated()
-                )
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http)
+            throws Exception {
 
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout")
-                        .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
-                )
-                .sessionManagement(session -> session
-                        .invalidSessionUrl("/session-expired")
-                );
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth ->
+                        auth.anyRequest().permitAll());
 
         return http.build();
     }

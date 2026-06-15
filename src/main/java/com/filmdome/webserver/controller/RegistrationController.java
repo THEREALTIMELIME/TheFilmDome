@@ -35,6 +35,7 @@ public class RegistrationController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         accountRepository.save(user);
 
-        return "redirect:/loginPart1";
+        return "redirect:/login";
+
     }
 }
