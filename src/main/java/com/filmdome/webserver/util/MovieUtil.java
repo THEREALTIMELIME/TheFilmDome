@@ -59,7 +59,6 @@ public class MovieUtil {
     public static MovieDto convertToMovie(Movie movie) {
 
         MovieDto movieDto = new MovieDto();
-
         movieDto.setId(movie.getId());
         movieDto.setName(movie.getName());
         movieDto.setPoster(movie.getPoster());
