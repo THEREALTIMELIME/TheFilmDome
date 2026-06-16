@@ -90,11 +90,14 @@ public class SignUpController {
 
             theUser.setPassword(passwordEncoder.encode(theUser.getPassword()));
             accountRepository.save(theUser);
-            session.setAttribute("user", theUser);
+
+            User savedUser = accountRepository.findByUsername(theUser.getUsername());
+
+            session.setAttribute("user", savedUser);
             model.addAttribute("trendingMovies", moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0));
             model.addAttribute("newestMovies", moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end));
 
-            return "home-page";
+            return "redirect:/homePage1";
         }
     }
 }

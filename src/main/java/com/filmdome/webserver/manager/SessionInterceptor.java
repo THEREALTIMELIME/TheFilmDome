@@ -8,17 +8,17 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class SessionInterceptor implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String uri = request.getRequestURI();
 
         if (uri.equals("/")
                 || uri.equals("/login")
+                || uri.equals("/showSignUpPage")
+                || uri.equals("/processSignUpPage")
                 || uri.equals("/register")
-                || uri.equals("/error")
+                || uri.equals("/sessionEndLogout")
+                || uri.equals("/favicon.ico")
                 || uri.startsWith("/css/")
                 || uri.startsWith("/js/")
                 || uri.startsWith("/images/")
@@ -27,15 +27,11 @@ public class SessionInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        HttpSession session =
-                request.getSession(false);
+        HttpSession session = request.getSession(false);
 
-        if (session == null
-                || session.getAttribute("user") == null) {
+        if (session == null || session.getAttribute("user") == null) {
 
-            response.sendRedirect(
-                    request.getContextPath()
-                            + "/login?expired=true");
+            response.sendRedirect(request.getContextPath() + "/login?expired=true");
 
             return false;
         }
