@@ -17,9 +17,6 @@ import org.springframework.validation.BindingResult;
 public class UserBioController {
 
     @Autowired
-    private MoviesRepository moviesRepository;
-
-    @Autowired
     private AccountRepository accountRepository;
 
     @Autowired
