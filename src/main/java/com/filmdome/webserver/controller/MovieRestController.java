@@ -11,8 +11,12 @@ import java.util.*;
 @RequestMapping("/api/movies")
 public class MovieRestController {
 
-    @Autowired
     private MoviesRepository moviesRepository;
+
+    @Autowired
+    public MovieRestController(MoviesRepository moviesRepository) {
+        this.moviesRepository = moviesRepository;
+    }
 
     @GetMapping("/searchMovie")
     public List<MovieSearchDto> searchMovie(@RequestParam String title) {

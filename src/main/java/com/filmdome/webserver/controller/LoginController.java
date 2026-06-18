@@ -21,6 +21,7 @@ public class LoginController {
     private final AccountRepository accountRepository;
 
     private final PasswordEncoder passwordEncoder;
+
     @Autowired
     public LoginController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;

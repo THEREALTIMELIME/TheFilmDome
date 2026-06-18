@@ -16,11 +16,16 @@ import org.springframework.validation.BindingResult;
 @Controller
 public class UserBioController {
 
-    @Autowired
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserBioController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
+        this.accountRepository = accountRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
 
     @GetMapping("/processUserBio")
     public String processUserBio(@RequestParam int id, Model model) {
