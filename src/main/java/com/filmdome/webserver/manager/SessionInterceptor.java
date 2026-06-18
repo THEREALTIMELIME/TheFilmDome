@@ -15,7 +15,6 @@ public class SessionInterceptor implements HandlerInterceptor {
                 || uri.equals("/login")
                 || uri.equals("/showSignUpPage")
                 || uri.equals("/processSignUpPage")
-                || uri.equals("/register")
                 || uri.equals("/sessionEndLogout")
                 || uri.equals("/favicon.ico")
                 || uri.startsWith("/css/")
