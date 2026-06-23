@@ -1,5 +1,6 @@
 server:
   address: 0.0.0.0
+  forward-headers-strategy: framework
   
   servlet:
     session:
@@ -33,8 +34,6 @@ logging:
 
   level:
     root: INFO
-
-    com.loginwebsite.websiteproject: INFO
 
     org.hibernate.SQL: OFF
     org.hibernate.orm.jdbc.bind: OFF
