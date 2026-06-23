@@ -3,6 +3,7 @@ package com.filmdome.webserver.controller;
 import com.filmdome.movies.repository.MoviesRepository;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.entity.User;
+import com.filmdome.webserver.util.MovieUtil;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,11 @@ import java.util.Date;
 @Controller
 public class SignUpController {
     
-    @Autowired
-    private MoviesRepository moviesRepository;
-    @Autowired
-    private AccountRepository accountRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final AccountRepository accountRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    Date end = new Date();
-    Date start = Date.from(Instant.now().minus(14, ChronoUnit.DAYS));
-
-    public SignUpController(MoviesRepository moviesRepository, AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
-        this.moviesRepository = moviesRepository;
+    @Autowired
+    public SignUpController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -90,11 +84,10 @@ public class SignUpController {
 
             theUser.setPassword(passwordEncoder.encode(theUser.getPassword()));
             accountRepository.save(theUser);
-            session.setAttribute("user", theUser);
-            model.addAttribute("trendingMovies", moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0));
-            model.addAttribute("newestMovies", moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end));
 
-            return "home-page";
+            session.setAttribute("user", theUser);
+
+            return "redirect:/homePage1";
         }
     }
 }

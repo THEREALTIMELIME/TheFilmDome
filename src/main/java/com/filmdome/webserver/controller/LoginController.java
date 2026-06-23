@@ -18,20 +18,12 @@ import java.util.Date;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private MoviesRepository moviesRepository;
+    private final AccountRepository accountRepository;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private AccountRepository accountRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    Date end = new Date();
-    Date start = Date.from(Instant.now().minus(30, ChronoUnit.DAYS));
-
-
-    public LoginController(MoviesRepository moviesRepository, AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
-        this.moviesRepository = moviesRepository;
+    public LoginController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -94,9 +86,6 @@ public class LoginController {
 
         session.setAttribute("user", user);
 
-        model.addAttribute("trendingMovies", MovieUtil.convertTo(moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0)));
-        model.addAttribute("newestMovies", MovieUtil.convertTo(moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end)));
-
-        return "home-page";
+        return "redirect:/homePage1";
     }
 }

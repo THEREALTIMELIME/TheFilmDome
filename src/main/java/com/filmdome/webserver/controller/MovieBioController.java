@@ -13,10 +13,16 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MovieBioController {
 
+
+    private final MoviesRepository moviesRepository;
+
+    private final ActorRepository actorRepository;
+
     @Autowired
-    private MoviesRepository moviesRepository;
-    @Autowired
-    private ActorRepository actorRepository;
+    public MovieBioController(MoviesRepository moviesRepository, ActorRepository actorRepository) {
+        this.moviesRepository = moviesRepository;
+        this.actorRepository = actorRepository;
+    }
 
     @RequestMapping(value = "/imageSelection", method = RequestMethod.GET)
     public String imageSelection(@RequestParam("id") int id, Model model) {

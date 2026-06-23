@@ -45,8 +45,7 @@
                         </div>
 
                         <div class="form-floating  mx-5 mb-3">
-                            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="form-control"
-                                   placeholder="Phone Number" required>
+                            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="form-control" placeholder="Phone Number" required>
                             <label for="phoneNumber">Phone Number</label>
 
                             <div th:if="${phoneNumberErrorMessage}">
@@ -55,21 +54,24 @@
                         </div>
 
                         <div class="form-floating mx-5 position-relative">
-                            <input type="password" id="passwordId" name="password" class="form-control pe-5" oninput="signUpPasswordCheck()" placeholder="Password" required>
+                            <input type="password" id="passwordId" th:field="*{password}" class="form-control pe-5" oninput="signUpPasswordCheck()" placeholder="Password" required>
 
                             <label for="passwordId">Password</label>
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3" id="toggleSignupPassword" style="cursor:pointer; z-index:10;"></i>
 
-                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3" id="toggleSignupPassword" style="cursor: pointer; z-index: 10;">
-                            </i>
+                            <div th:if="${#fields.hasErrors('password')}">
+                                <span th:errors="*{password}" style="color:red"></span>
+                            </div>
                         </div>
 
                         <div class="form-floating mx-5 position-relative mt-3">
-                            <input type="password" id="signupConfirmPassword" name="confirmPassword" class="form-control border pe-5" required>
+                            <input type="password" id="signupConfirmPassword" name="confirmPassword" class="form-control pe-5" oninput="signUpPasswordCheck()" required>
 
-                            <label for="signupConfirmPassword" class="fw-bold">Confirm Password</label>
+                            <label for="signupConfirmPassword">
+                                Confirm Password
+                            </label>
 
-                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3" id="toggleSignupConfirmPassword" style="cursor: pointer; z-index: 10;">
-                            </i>
+                            <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3" id="toggleSignupConfirmPassword" style="cursor:pointer; z-index:10;"></i>
                         </div>
 
                         <div>
@@ -88,7 +90,7 @@
                         </div>
 
                         <div class="text-center mt-2">
-                            <p>Have an account? <a th:href="@{/loginPart1}">Sign in</a></p>
+                            <p>Have an account? <a th:href="@{/login}">Sign in</a>
                         </div>
                     </form>
 
