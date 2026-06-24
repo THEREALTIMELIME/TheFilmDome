@@ -1,45 +1,47 @@
 package com.filmdome.webserver.controller;
 
-import com.filmdome.movies.repository.MoviesRepository;
-import com.filmdome.webserver.repository.AccountRepository;
-import com.filmdome.webserver.model.PasswordView;
+import com.filmdome.webserver.dto.UserDto;
 import com.filmdome.webserver.entity.User;
-import com.filmdome.webserver.model.UserView;
+import com.filmdome.webserver.model.PasswordView;
+import com.filmdome.webserver.repository.AccountRepository;
+import com.filmdome.webserver.util.UserUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserBioController {
 
     private final AccountRepository accountRepository;
-
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserBioController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
+    public UserBioController(AccountRepository accountRepository,
+                             PasswordEncoder passwordEncoder) {
+
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
 
     @GetMapping("/processUserBio")
     public String processUserBio(@RequestParam int id, Model model) {
 
         User fetchedUser = accountRepository.findById(id);
 
-        model.addAttribute("userView", convertTo(fetchedUser));
+        model.addAttribute("user", UserUtil.convertTo(fetchedUser));
         model.addAttribute("passwordView", new PasswordView());
 
         return "user-update";
     }
 
     @PostMapping("/processUser")
-    public String processUser(@Valid @ModelAttribute("userView") UserView userView, BindingResult bindingResult, Model model,
+    public String processUser(@Valid @ModelAttribute("user") UserDto userDto,
+                              BindingResult bindingResult,
+                              Model model,
                               @RequestParam(required = false) String updateButton,
                               @RequestParam(required = false) String deleteButton) {
 
@@ -51,48 +53,60 @@ public class UserBioController {
 
         if (updateButton != null) {
 
-            User existingUser = accountRepository.findById(userView.getId());
+            UserDto existingUser = UserUtil.convertTo(accountRepository.findUserById(userDto.getId()));
 
-            if (userView.getEmail() != existingUser.getEmail()) {
-                User emailUser = accountRepository.findByEmail(userView.getEmail());
+            if (!userDto.getEmail().equals(existingUser.getEmail())) {
+
+                User emailUser = accountRepository.findByEmail(userDto.getEmail());
+
                 if (emailUser != null && emailUser.getId() != existingUser.getId()) {
                     model.addAttribute("userInputErrors", "Email already exists.");
                     return "user-update";
                 }
             }
 
-            if (userView.getUsername() != existingUser.getUsername()) {
-                User usernameUser = accountRepository.findByUsername(userView.getUsername());
+            if (!userDto.getUsername().equals(existingUser.getUsername())) {
+
+                User usernameUser = accountRepository.findByUsername(userDto.getUsername());
+
                 if (usernameUser != null && usernameUser.getId() != existingUser.getId()) {
                     model.addAttribute("userInputErrors", "Username already exists.");
                     return "user-update";
                 }
             }
-            if (userView.getPhoneNumber() != existingUser.getPhoneNumber()){
-                User phoneUser = accountRepository.findByPhoneNumber(userView.getPhoneNumber());
+
+            if (!userDto.getPhoneNumber().equals(existingUser.getPhoneNumber())) {
+
+                User phoneUser = accountRepository.findByPhoneNumber(userDto.getPhoneNumber());
+
                 if (phoneUser != null && phoneUser.getId() != existingUser.getId()) {
                     model.addAttribute("userInputErrors", "Phone number already exists.");
                     return "user-update";
                 }
             }
 
-            existingUser.setFirstName(userView.getFirstName());
-            existingUser.setLastName(userView.getLastName());
-            existingUser.setEmail(userView.getEmail());
-            existingUser.setUsername(userView.getUsername());
-            existingUser.setPhoneNumber(userView.getPhoneNumber());
+            existingUser.setFirstName(userDto.getFirstName());
+            existingUser.setLastName(userDto.getLastName());
+            existingUser.setEmail(userDto.getEmail());
+            existingUser.setUsername(userDto.getUsername());
+            existingUser.setPhoneNumber(userDto.getPhoneNumber());
 
-            accountRepository.save(existingUser);
+            accountRepository.save(UserUtil.convertTo(existingUser));
 
+            model.addAttribute("user", UserUtil.convertTo(existingUser));
             model.addAttribute("updateAccountSuccess", true);
             model.addAttribute("updateAccountMsg", "Your account has been updated!");
+
             return "user-update";
         }
 
         if (deleteButton != null) {
-            accountRepository.deleteById(userView.getId());
+
+            accountRepository.deleteById(userDto.getId());
+
             return "user-login";
         }
+
         return "user-update";
     }
 
@@ -101,42 +115,36 @@ public class UserBioController {
                                  BindingResult result,
                                  Model model) {
 
-        User user = accountRepository.findById(passwordView.getId());
+        UserDto user = UserUtil.convertTo(accountRepository.findById(passwordView.getId()));
 
-        model.addAttribute("userView", convertTo(user));
+        model.addAttribute("user", UserUtil.convertTo(user));
 
         if (result.hasErrors()) {
             return "user-update";
         }
 
         if (!passwordEncoder.matches(passwordView.getCurrentPassword(), user.getPassword())) {
+
             model.addAttribute("passwordError", "Current password is incorrect");
-            return "user-update";
-        } else if (!passwordView.getNewPassword().equals(passwordView.getConfirmPassword())) {
-            model.addAttribute("passwordError", "New passwords do not match");
-            return "user-update";
-        } else {
-
-            user.setPassword(passwordEncoder.encode(passwordView.getNewPassword()));
-            accountRepository.save(user);
-
-            model.addAttribute("updatePasswordSuccess", true);
-            model.addAttribute("updatePasswordMsg", "Your password has been updated!");
 
             return "user-update";
         }
-    }
 
-    private UserView convertTo(User fetchedUser) {
+        if (!passwordView.getNewPassword().equals(passwordView.getConfirmPassword())) {
 
-        UserView userView = new UserView();
-        userView.setEmail(fetchedUser.getEmail());
-        userView.setId(fetchedUser.getId());
-        userView.setUsername(fetchedUser.getUsername());
-        userView.setLastName(fetchedUser.getLastName());
-        userView.setFirstName(fetchedUser.getFirstName());
-        userView.setPhoneNumber(fetchedUser.getPhoneNumber());
+            model.addAttribute("passwordError", "New passwords do not match");
 
-        return userView;
+            return "user-update";
+        }
+
+        passwordEncoder.matches(passwordView.getCurrentPassword(), user.getPassword());
+
+        accountRepository.save(UserUtil.convertTo(user));
+
+        model.addAttribute("user", UserUtil.convertTo(user));
+        model.addAttribute("updatePasswordSuccess", true);
+        model.addAttribute("updatePasswordMsg", "Your password has been updated!");
+
+        return "user-update";
     }
 }

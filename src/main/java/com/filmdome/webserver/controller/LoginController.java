@@ -1,19 +1,17 @@
 package com.filmdome.webserver.controller;
 
-import com.filmdome.movies.repository.MoviesRepository;
+import com.filmdome.webserver.dto.UserDto;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.model.Login;
-import com.filmdome.webserver.entity.User;
-import com.filmdome.webserver.util.MovieUtil;
+
+import com.filmdome.webserver.util.UserUtil;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
+
 
 @Controller
 public class LoginController {
@@ -62,14 +60,15 @@ public class LoginController {
         String input = userLogin.getLoginInput();
         String password = userLogin.getPassword();
 
-        User user = accountRepository.findByUsername(input);
+        UserDto user = UserUtil.convertTo(accountRepository.findByUsername(input));
+
 
         if (user == null) {
-            user = accountRepository.findByEmail(input);
+            user = UserUtil.convertTo(accountRepository.findByEmail(input));
         }
 
         if (user == null) {
-            user = accountRepository.findByPhoneNumber(input);
+            user = UserUtil.convertTo(accountRepository.findByPhoneNumber(input));
         }
 
         if (user == null) {
