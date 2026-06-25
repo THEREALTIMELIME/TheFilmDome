@@ -1,9 +1,10 @@
 package com.filmdome.webserver.controller;
 
-import com.filmdome.movies.repository.MoviesRepository;
+
+import com.filmdome.webserver.dto.UserDto;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.entity.User;
-import com.filmdome.webserver.util.MovieUtil;
+import com.filmdome.webserver.util.UserUtil;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 @Controller
 public class SignUpController {
@@ -29,49 +26,41 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/checkCurrentPassword")
-    @ResponseBody
-    public boolean checkCurrentPassword(@RequestParam int id, @RequestParam String currentPassword) {
-
-        User user = accountRepository.findById(id);
-        return passwordEncoder.matches(currentPassword, user.getPassword());
-    }
-
     @GetMapping("/showSignUpPage")
     public String showPage(Model theModel) {
-        theModel.addAttribute("user", new User());
+        theModel.addAttribute("user", new UserDto());
 
         return "user-sign-up";
     }
 
     @PostMapping("/processSignUpPage")
-    public String processPage(@Valid @ModelAttribute User theUser, BindingResult result, Model model, HttpSession session) {
+    public String processPage(@Valid @ModelAttribute UserDto user, BindingResult result, Model model, HttpSession session) {
 
         boolean errorFound = false;
 
         if (result.hasErrors()) {
-            model.addAttribute("user", theUser);
+            model.addAttribute("user", new UserDto());
             errorFound = true;
         }
 
-        if (theUser.getEmail() != null) {
-            User emailUser = accountRepository.findByEmail(theUser.getEmail());
+        if (user.getEmail() != null) {
+            User emailUser = accountRepository.findByEmail(user.getEmail());
             if (emailUser != null) {
                 model.addAttribute("emailErrorMessage", "Email already exists.");
                 errorFound = true;
             }
         }
 
-        if (theUser.getUsername() != null) {
-            User usernameUser = accountRepository.findByUsername(theUser.getUsername());
+        if (user.getUsername() != null) {
+            User usernameUser = accountRepository.findByUsername(user.getUsername());
             if (usernameUser != null) {
                 model.addAttribute("usernameErrorMessage", "Username already exists.");
                 errorFound = true;
             }
         }
 
-        if (theUser.getPhoneNumber() != null){
-            User phonenumberUser = accountRepository.findByPhoneNumber(theUser.getPhoneNumber());
+        if (user.getPhoneNumber() != null){
+            User phonenumberUser = accountRepository.findByPhoneNumber(user.getPhoneNumber());
             if (phonenumberUser != null) {
                 model.addAttribute("phoneNumberErrorMessage", "Phone Number already exists.");
                 errorFound = true;
@@ -82,10 +71,11 @@ public class SignUpController {
             return "user-sign-up";
         } else {
 
-            theUser.setPassword(passwordEncoder.encode(theUser.getPassword()));
-            accountRepository.save(theUser);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-            session.setAttribute("user", theUser);
+            User userEntity = UserUtil.convertTo(user);
+            accountRepository.save(userEntity);
+            session.setAttribute("user", UserUtil.convertToDisplayDto(userEntity));
 
             return "redirect:/homePage1";
         }

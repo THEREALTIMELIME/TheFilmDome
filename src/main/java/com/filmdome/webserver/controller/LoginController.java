@@ -1,19 +1,15 @@
 package com.filmdome.webserver.controller;
 
-import com.filmdome.movies.repository.MoviesRepository;
+import com.filmdome.webserver.entity.User;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.model.Login;
-import com.filmdome.webserver.entity.User;
-import com.filmdome.webserver.util.MovieUtil;
+import com.filmdome.webserver.util.UserUtil;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 @Controller
 public class LoginController {
@@ -45,8 +41,6 @@ public class LoginController {
         return "user-login";
     }
 
-
-
     @GetMapping("/sessionEndLogout")
     public String invalidateSession(HttpSession session, Model theModel) {
         if (session != null) {
@@ -63,6 +57,7 @@ public class LoginController {
         String password = userLogin.getPassword();
 
         User user = accountRepository.findByUsername(input);
+
 
         if (user == null) {
             user = accountRepository.findByEmail(input);
@@ -84,7 +79,7 @@ public class LoginController {
             return "user-login";
         }
 
-        session.setAttribute("user", user);
+        session.setAttribute("user", UserUtil.convertToDisplayDto(user));
 
         return "redirect:/homePage1";
     }
