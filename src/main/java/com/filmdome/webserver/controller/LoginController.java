@@ -1,6 +1,7 @@
 package com.filmdome.webserver.controller;
 
 import com.filmdome.webserver.dto.UserDto;
+import com.filmdome.webserver.entity.User;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.model.Login;
 
@@ -60,15 +61,15 @@ public class LoginController {
         String input = userLogin.getLoginInput();
         String password = userLogin.getPassword();
 
-        UserDto user = UserUtil.convertTo(accountRepository.findByUsername(input));
+        User user = accountRepository.findByUsername(input);
 
 
         if (user == null) {
-            user = UserUtil.convertTo(accountRepository.findByEmail(input));
+            user = accountRepository.findByEmail(input);
         }
 
         if (user == null) {
-            user = UserUtil.convertTo(accountRepository.findByPhoneNumber(input));
+            user = accountRepository.findByPhoneNumber(input);
         }
 
         if (user == null) {
@@ -83,7 +84,7 @@ public class LoginController {
             return "user-login";
         }
 
-        session.setAttribute("user", user);
+        session.setAttribute("user", UserUtil.convertToDisplayDto(user));
 
         return "redirect:/homePage1";
     }

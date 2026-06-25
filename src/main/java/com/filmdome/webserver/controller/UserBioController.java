@@ -20,8 +20,7 @@ public class UserBioController {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserBioController(AccountRepository accountRepository,
-                             PasswordEncoder passwordEncoder) {
+    public UserBioController(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
 
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
@@ -30,7 +29,7 @@ public class UserBioController {
     @GetMapping("/processUserBio")
     public String processUserBio(@RequestParam int id, Model model) {
 
-        User fetchedUser = accountRepository.findById(id);
+        User fetchedUser = accountRepository.findById(id).orElse(null);
 
         model.addAttribute("user", UserUtil.convertTo(fetchedUser));
         model.addAttribute("passwordView", new PasswordView());
@@ -39,11 +38,8 @@ public class UserBioController {
     }
 
     @PostMapping("/processUser")
-    public String processUser(@Valid @ModelAttribute("user") UserDto userDto,
-                              BindingResult bindingResult,
-                              Model model,
-                              @RequestParam(required = false) String updateButton,
-                              @RequestParam(required = false) String deleteButton) {
+    public String processUser(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult, Model model,
+                              @RequestParam(required = false) String updateButton, @RequestParam(required = false) String deleteButton) {
 
         model.addAttribute("passwordView", new PasswordView());
 
@@ -53,7 +49,7 @@ public class UserBioController {
 
         if (updateButton != null) {
 
-            UserDto existingUser = UserUtil.convertTo(accountRepository.findUserById(userDto.getId()));
+            User existingUser = accountRepository.findById(userDto.getId()).orElse(null);
 
             if (!userDto.getEmail().equals(existingUser.getEmail())) {
 
@@ -91,7 +87,7 @@ public class UserBioController {
             existingUser.setUsername(userDto.getUsername());
             existingUser.setPhoneNumber(userDto.getPhoneNumber());
 
-            accountRepository.save(UserUtil.convertTo(existingUser));
+            accountRepository.save(existingUser);
 
             model.addAttribute("user", UserUtil.convertTo(existingUser));
             model.addAttribute("updateAccountSuccess", true);
@@ -103,7 +99,6 @@ public class UserBioController {
         if (deleteButton != null) {
 
             accountRepository.deleteById(userDto.getId());
-
             return "user-login";
         }
 
@@ -111,12 +106,9 @@ public class UserBioController {
     }
 
     @PostMapping("/updatePassword")
-    public String updatePassword(@Valid @ModelAttribute PasswordView passwordView,
-                                 BindingResult result,
-                                 Model model) {
+    public String updatePassword(@Valid @ModelAttribute PasswordView passwordView, BindingResult result, Model model) {
 
-        UserDto user = UserUtil.convertTo(accountRepository.findById(passwordView.getId()));
-
+        User user = accountRepository.findById(passwordView.getId()).orElse(null);
         model.addAttribute("user", UserUtil.convertTo(user));
 
         if (result.hasErrors()) {
@@ -126,20 +118,17 @@ public class UserBioController {
         if (!passwordEncoder.matches(passwordView.getCurrentPassword(), user.getPassword())) {
 
             model.addAttribute("passwordError", "Current password is incorrect");
-
             return "user-update";
         }
 
         if (!passwordView.getNewPassword().equals(passwordView.getConfirmPassword())) {
 
             model.addAttribute("passwordError", "New passwords do not match");
-
             return "user-update";
         }
 
         passwordEncoder.matches(passwordView.getCurrentPassword(), user.getPassword());
-
-        accountRepository.save(UserUtil.convertTo(user));
+        accountRepository.save(user);
 
         model.addAttribute("user", UserUtil.convertTo(user));
         model.addAttribute("updatePasswordSuccess", true);

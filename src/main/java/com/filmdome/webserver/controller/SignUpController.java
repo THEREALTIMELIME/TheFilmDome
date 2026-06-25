@@ -28,10 +28,10 @@ public class SignUpController {
 
     @GetMapping("/checkCurrentPassword")
     @ResponseBody
-    public boolean checkCurrentPassword(@RequestParam int id, @RequestParam String currentPassword) {
+    public boolean checkCurrentPassword(@RequestParam int id, @RequestParam String currentPassword, UserDto userDto) {
 
-        User user = accountRepository.findById(id);
-        return passwordEncoder.matches(currentPassword, user.getPassword());
+        User existingUser = accountRepository.findById(userDto.getId()).orElse(null);
+        return passwordEncoder.matches(currentPassword, existingUser.getPassword());
     }
 
     @GetMapping("/showSignUpPage")
@@ -80,9 +80,7 @@ public class SignUpController {
         } else {
 
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-
             accountRepository.save(UserUtil.convertTo(user));
-
             session.setAttribute("user", new UserDto());
 
             return "redirect:/homePage1";

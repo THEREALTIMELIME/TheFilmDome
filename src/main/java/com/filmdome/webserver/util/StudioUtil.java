@@ -2,7 +2,6 @@ package com.filmdome.webserver.util;
 
 import com.filmdome.movies.entity.Studio;
 import com.filmdome.webserver.dto.StudioDto;
-
 import java.util.HashSet;
 import java.util.Set;
 

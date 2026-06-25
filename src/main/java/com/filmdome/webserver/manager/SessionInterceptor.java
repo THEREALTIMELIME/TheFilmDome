@@ -30,7 +30,6 @@ public class SessionInterceptor implements HandlerInterceptor {
         if (session == null || session.getAttribute("user") == null) {
 
             response.sendRedirect(request.getContextPath() + "/login?expired=true");
-
             return false;
         }
 

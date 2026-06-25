@@ -1,11 +1,10 @@
 package com.filmdome.webserver.util;
 
+import com.filmdome.webserver.dto.UserDisplayDto;
 import com.filmdome.webserver.dto.UserDto;
 import com.filmdome.webserver.entity.User;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class UserUtil {
 
@@ -22,15 +21,30 @@ public class UserUtil {
 
     public static UserDto convertTo(User user) {
 
-        UserDto dto = new UserDto();
+        UserDto dto = null;
+
+        if (user != null) {
+            dto = new UserDto();
+
+            dto.setId(user.getId());
+            dto.setFirstName(user.getFirstName());
+            dto.setLastName(user.getLastName());
+            dto.setEmail(user.getEmail());
+            dto.setUsername(user.getUsername());
+            dto.setPassword(user.getPassword());
+            dto.setPhoneNumber(user.getPhoneNumber());
+        }
+
+        return dto;
+    }
+
+    public static UserDisplayDto convertToDisplayDto(User user) {
+
+        UserDisplayDto dto = new UserDisplayDto();
 
         dto.setId(user.getId());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
-        dto.setEmail(user.getEmail());
-        dto.setUsername(user.getUsername());
-        dto.setPassword(user.getPassword());
-        dto.setPhoneNumber(user.getPhoneNumber());
 
         return dto;
     }
@@ -49,5 +63,4 @@ public class UserUtil {
 
         return user;
     }
-
 }
