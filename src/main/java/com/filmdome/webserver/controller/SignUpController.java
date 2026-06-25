@@ -26,14 +26,6 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/checkCurrentPassword")
-    @ResponseBody
-    public boolean checkCurrentPassword(@RequestParam int id, @RequestParam String currentPassword, UserDto userDto) {
-
-        User existingUser = accountRepository.findById(userDto.getId()).orElse(null);
-        return passwordEncoder.matches(currentPassword, existingUser.getPassword());
-    }
-
     @GetMapping("/showSignUpPage")
     public String showPage(Model theModel) {
         theModel.addAttribute("user", new UserDto());
@@ -80,8 +72,10 @@ public class SignUpController {
         } else {
 
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            accountRepository.save(UserUtil.convertTo(user));
-            session.setAttribute("user", new UserDto());
+
+            User userEntity = UserUtil.convertTo(user);
+            accountRepository.save(userEntity);
+            session.setAttribute("user", UserUtil.convertToDisplayDto(userEntity));
 
             return "redirect:/homePage1";
         }

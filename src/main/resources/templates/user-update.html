@@ -19,7 +19,7 @@
                 <div class="card-body loginSignUpCardBody">
                     <form th:action="@{/processUser}" method="post" th:object="${userView}">
 
-                        <div th:if="${#fields.hasErrors('phoneNumber')}" class="alert alert-danger">
+                        <div th:if="${userView != null and #fields.hasErrors('phoneNumber')}" class="alert alert-danger">
                             <h5>Account field(s) doesn't meet their requirements:</h5>
                             <ul class="mb-0 ps-4 text-start fw-bold">
                                 <li th:each="err : ${#fields.errors('phoneNumber')}" th:text="${err}"></li>

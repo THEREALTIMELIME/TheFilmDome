@@ -53,7 +53,9 @@ public class UserUtil {
 
         User user = new User();
 
-        user.setId(dto.getId());
+        if (dto.getId() != null) {
+            user.setId(dto.getId());
+        }
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
