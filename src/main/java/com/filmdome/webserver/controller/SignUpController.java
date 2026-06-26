@@ -1,6 +1,5 @@
 package com.filmdome.webserver.controller;
 
-
 import com.filmdome.webserver.dto.UserDto;
 import com.filmdome.webserver.repository.AccountRepository;
 import com.filmdome.webserver.entity.User;
@@ -26,15 +25,15 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/showSignUpPage")
-    public String showPage(Model theModel) {
+    @GetMapping("/displaySignUpPage")
+    public String displaySignUpPage(Model theModel) {
         theModel.addAttribute("user", new UserDto());
 
         return "user-sign-up";
     }
 
-    @PostMapping("/processSignUpPage")
-    public String processPage(@Valid @ModelAttribute UserDto user, BindingResult result, Model model, HttpSession session) {
+    @PostMapping("/processUserSignUp")
+    public String processUserSignUp(@Valid @ModelAttribute UserDto user, BindingResult result, Model model, HttpSession session) {
 
         boolean errorFound = false;
 
@@ -77,7 +76,7 @@ public class SignUpController {
             accountRepository.save(userEntity);
             session.setAttribute("user", UserUtil.convertToDisplayDto(userEntity));
 
-            return "redirect:/homePage1";
+            return "redirect:/displayHomePage";
         }
     }
 }

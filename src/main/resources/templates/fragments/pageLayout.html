@@ -8,20 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-
 <footer th:fragment="foot" class="py-2 text-end pe-5 fs-5 text-white fw-bold" style="background-color: rgba(63, 81, 181, 0.95);" xmlns:th="http://www.w3.org/1999/xhtml">© 2026 Film Dome, Inc</footer>
 
 <nav th:fragment="nav" xmlns:th="http://www.w3.org/1999/xhtml">
     <ul>
-        <li><a href="/homePage1" th:href="@{/homePage1}">Home</a></li>
+        <li><a href="/displayHomePage" th:href="@{/displayHomePage}">Home</a></li>
         <li><a href="/newsPage" th:href="@{/newsPage}">News</a></li>
-        <li><a href="/searchPage" th:href="@{/searchPage}">Search</a></li>
+        <li><a href="/displaySearchPage" th:href="@{/displaySearchPage}">Search</a></li>
         <li><a href="/sessionEndLogout" th:href="@{/sessionEndLogout}">Sign Out</a></li>
     </ul>
     <div th:if="${session.user != null}">
-        <a th:href="@{'/processUserBio?id=' + ${session.user.id}}"
-           class="fs-3 font-weight-bold text-white"
-           th:text="${session.user.firstName + ' ' + session.user.lastName}"></a>
+        <a th:href="@{'/displayUserInfo?id=' + ${session.user.id}}" class="fs-3 font-weight-bold text-white" th:text="${session.user.firstName + ' ' + session.user.lastName}"></a>
     </div>
     <div th:unless="${session.user != null}">
         <span class="text-white">Welcome, Guest</span>

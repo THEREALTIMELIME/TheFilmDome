@@ -26,11 +26,11 @@ public class LoginController {
 
     @GetMapping("/")
     public String redirectToLogin() {
-        return "redirect:/login";
+        return "redirect:/displayLoginPage";
     }
 
-    @GetMapping("/login")
-    public String showForm(@RequestParam(required = false) String expired, Model model) {
+    @GetMapping("/displayLoginPage")
+    public String displayLoginPage(@RequestParam(required = false) String expired, Model model) {
 
         model.addAttribute("userLogin", new Login());
 
@@ -42,7 +42,7 @@ public class LoginController {
     }
 
     @GetMapping("/sessionEndLogout")
-    public String invalidateSession(HttpSession session, Model theModel) {
+    public String sessionEndLogout(HttpSession session, Model theModel) {
         if (session != null) {
             session.invalidate();
         }
@@ -81,6 +81,6 @@ public class LoginController {
 
         session.setAttribute("user", UserUtil.convertToDisplayDto(user));
 
-        return "redirect:/homePage1";
+        return "redirect:/displayHomePage";
     }
 }

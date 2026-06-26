@@ -23,14 +23,14 @@ public class MovieBioController {
         this.actorRepository = actorRepository;
     }
 
-    @RequestMapping(value = "/imageSelection", method = RequestMethod.GET)
-    public String imageSelection(@RequestParam("id") int id, Model model) {
+    @RequestMapping(value = "/displayMovieInfo", method = RequestMethod.GET)
+    public String displayMovieInfo(@RequestParam("id") int id, Model model) {
         model.addAttribute("movie", MovieUtil.convertMovie(moviesRepository.findById(id)));
         return "movie-bio";
     }
 
-    @RequestMapping(value = "/actorSelection", method = RequestMethod.GET)
-    public String actorSelection(@RequestParam("id") int id, Model model) {
+    @RequestMapping(value = "/displayActorInfo", method = RequestMethod.GET)
+    public String displayActorInfo(@RequestParam("id") int id, Model model) {
 
         Actor actor = actorRepository.findById(id);
         model.addAttribute("actor", ActorUtil.convertTo(actorRepository.findById(id)));
