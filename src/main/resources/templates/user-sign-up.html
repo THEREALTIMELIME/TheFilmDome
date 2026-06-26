@@ -14,7 +14,7 @@
                     <h4 class="fw-bold mt-2">Create Your Account</h4>
                 </div>
                 <div class="card-body loginSignUpCardBody">
-                    <form th:action="@{/processSignUpPage}" method="post" th:object="${user}">
+                    <form th:action="@{/processUserSignUp}" method="post" th:object="${user}">
                         <div class="form-floating  mx-5 mb-3">
                             <input type="text" id="firstName" th:field="*{firstName}" class="form-control" placeholder="First Name" required>
                             <label for="firstName">First Name</label>
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="text-center mt-2">
-                            <p>Have an account? <a th:href="@{/login}">Sign in</a>
+                            <p>Have an account? <a th:href="@{/displayLoginPage}">Sign in</a>
                         </div>
                     </form>
 

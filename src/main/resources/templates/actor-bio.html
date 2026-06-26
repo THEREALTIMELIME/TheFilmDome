@@ -30,10 +30,8 @@
                 <div class="row">
                     <div class="col-auto"
                          th:each="movie : ${actor.movies}">
-                        <a th:href="@{'/imageSelection?id=' + ${movie.id}}">
-                            <img class="movieImage"
-                                 th:src="@{'https://image.tmdb.org/t/p/w500' + ${movie.poster}}"
-                                 style="width:150px; height:225px"/>
+                        <a th:href="@{'/displayMovieInfo?id=' + ${movie.id}}">
+                            <img class="movieImage" th:src="@{'https://image.tmdb.org/t/p/w500' + ${movie.poster}}" style="width:150px; height:225px"/>
                         </a>
                     </div>
                 </div>

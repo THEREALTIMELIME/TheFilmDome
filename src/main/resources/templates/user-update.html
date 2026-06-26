@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="card-body loginSignUpCardBody">
-                    <form th:action="@{/processUser}" method="post" th:object="${userView}">
+                    <form th:action="@{/updateUserInfo}" method="post" th:object="${userView}">
 
                         <div th:if="${userView != null and #fields.hasErrors('phoneNumber')}" class="alert alert-danger">
                             <h5>Account field(s) doesn't meet their requirements:</h5>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form th:action="@{/updatePassword}" method="post" th:object="${passwordView}">
+                    <form th:action="@{/updateUserPassword}" method="post" th:object="${passwordView}">
                         <div th:if="${#fields.hasErrors('newPassword')}" class="alert alert-danger">
                             <h5>Password was not updated properly.</h5>
                             <ul class="mb-0 ps-4 text-start fw-bold">
@@ -147,7 +147,6 @@
 
                       document.getElementById("newPassword").addEventListener("input", updateUserPasswordCheck);
                       document.getElementById("confirmPassword").addEventListener("input", updateUserPasswordCheck);
-
 
                       setupPasswordToggle("currentPassword", "toggleCurrentPassword");
                       setupPasswordToggle("newPassword", "toggleNewPassword");

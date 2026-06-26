@@ -27,36 +27,18 @@ public class NavigationController {
         this.moviesRepository = moviesRepository;
     }
 
-    @GetMapping("/homePage1")
-    public String homePage(Model theModel) {
+    @GetMapping("/displayHomePage")
+    public String displayHomePage(Model theModel) {
         theModel.addAttribute("trendingMovies", moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0));
         theModel.addAttribute("newestMovies", moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end));
         return "home-page";
     }
 
-    @GetMapping("/searchPage")
-    public String home2Page(Model theModel) {
+    @GetMapping("/displaySearchPage")
+    public String displaySearchPage(Model theModel) {
         theModel.addAttribute("trendingMovies", moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0));
         theModel.addAttribute("newestMovies", moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end));
         return "searched-page";
-    }
-
-    @GetMapping("/homePage2")
-    public String homePage(
-            @RequestParam(value = "search") String search,
-            Model model) {
-
-        if (search != null && !search.isBlank()) {
-
-            model.addAttribute("movie", MovieUtil.convertTo(moviesRepository.searchEverything(search)));
-
-        } else {
-
-            model.addAttribute("trendingMovies", moviesRepository.findByPopularityGreaterThanOrderByPopularityDesc(50.0));
-            model.addAttribute("newestMovies", moviesRepository.findByReleaseDateBetweenOrderByReleaseDateDesc(start, end));
-        }
-
-        return "home-page";
     }
 
     @GetMapping("/newsPage")

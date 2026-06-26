@@ -9,7 +9,6 @@
 
 <div class="container">
     <div class="container-fluid">
-
         <div class="col-md-12 mt-5 text-bold">
             <div class="fs-1">
                 <p>
@@ -17,7 +16,6 @@
                 </p>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-12">
                 <p class="fs-4">
@@ -64,26 +62,16 @@
         <div class="row">
             <div class="col-md">
                 <p class="fs-3"><br><b>Cast:</b></p>
-
                 <div class="row">
-                    <div class="col-auto"
-                         th:each="actor : ${movie.actors}"
-                         th:if="${actor.poster != null}">
-
-                        <a th:href="@{'/actorSelection?id=' + ${actor.id}}"
-                           class="text-decoration-none text-dark d-block">
-
+                    <div class="col-auto" th:each="actor : ${movie.actors}" th:if="${actor.poster != null}">
+                        <a th:href="@{'/displayActorInfo?id=' + ${actor.id}}" class="text-decoration-none text-dark d-block">
                             <div class="actor-card">
-                                <img class="movieImage"
-                                     th:src="@{'https://image.tmdb.org/t/p/w500' + ${actor.poster}}"/>
-
+                                <img class="movieImage" th:src="@{'https://image.tmdb.org/t/p/w500' + ${actor.poster}}"/>
                                 <h5 class="actor-name">
                                     <span th:text="${actor.actorName}"></span>
                                 </h5>
                             </div>
-
                         </a>
-
                     </div>
                 </div>
             </div>

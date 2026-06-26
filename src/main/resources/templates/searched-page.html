@@ -51,7 +51,7 @@
                 movies.forEach(movie => {
                     const movieHtml = `
                         <div class="col-md-3 mb-4 image-container">
-                            <a href="/imageSelection?id=${movie.id}">
+                            <a href="/displayMovieInfo?id=${movie.id}">
                                 <img class="movieImage" src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.name}">
                             </a>
                         <div class="ml-5 mt-2">

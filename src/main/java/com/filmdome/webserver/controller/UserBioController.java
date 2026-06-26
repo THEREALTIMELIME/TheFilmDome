@@ -30,8 +30,8 @@ public class UserBioController {
         model.addAttribute("passwordView", new PasswordView());
     }
 
-    @GetMapping("/processUserBio")
-    public String processUserBio(@RequestParam int id, Model model) {
+    @GetMapping("/displayUserInfo")
+    public String displayUserInfo(@RequestParam int id, Model model) {
 
         User fetchedUser = accountRepository.findById(id).orElse(null);
         loadUser(model, fetchedUser);
@@ -39,16 +39,11 @@ public class UserBioController {
         return "user-update";
     }
 
-    @PostMapping("/processUser")
-    public String processUser(
-            @Valid @ModelAttribute("userView") UserDto userDto,
-            BindingResult bindingResult,
-            Model model,
-            @RequestParam(required = false) String updateButton,
-            @RequestParam(required = false) String deleteButton) {
+    @PostMapping("/updateUserInfo")
+    public String updateUserInfo(@Valid @ModelAttribute("userView") UserDto userDto, BindingResult bindingResult, Model model,
+            @RequestParam(required = false) String updateButton, @RequestParam(required = false) String deleteButton) {
 
         User existingUser = accountRepository.findById(userDto.getId()).orElse(null);
-
         model.addAttribute("passwordView", new PasswordView());
 
         if (bindingResult.hasErrors()) {
@@ -101,18 +96,15 @@ public class UserBioController {
 
         if (deleteButton != null) {
             accountRepository.deleteById(userDto.getId());
-            return "redirect:/login";
+            return "redirect:/displayLoginPage";
         }
 
         loadUser(model, existingUser);
         return "user-update";
     }
 
-    @PostMapping("/updatePassword")
-    public String updatePassword(
-            @Valid @ModelAttribute PasswordView passwordView,
-            BindingResult result,
-            Model model) {
+    @PostMapping("/updateUserPassword")
+    public String updateUserPassword(@Valid @ModelAttribute PasswordView passwordView, BindingResult result, Model model) {
 
         User user = accountRepository.findById(passwordView.getId()).orElse(null);
 

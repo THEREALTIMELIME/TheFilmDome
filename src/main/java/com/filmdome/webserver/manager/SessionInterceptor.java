@@ -13,8 +13,9 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         if (uri.equals("/")
                 || uri.equals("/login")
-                || uri.equals("/showSignUpPage")
-                || uri.equals("/processSignUpPage")
+                || uri.equals("/displayLoginPage")
+                || uri.equals("/displaySignUpPage")
+                || uri.equals("/processUserSignUp")
                 || uri.equals("/sessionEndLogout")
                 || uri.equals("/favicon.ico")
                 || uri.startsWith("/css/")
@@ -29,7 +30,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         if (session == null || session.getAttribute("user") == null) {
 
-            response.sendRedirect(request.getContextPath() + "/login?expired=true");
+            response.sendRedirect(request.getContextPath() + "/displayLoginPage?expired=true");
             return false;
         }
 
